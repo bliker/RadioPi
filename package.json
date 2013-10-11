@@ -1,0 +1,18 @@
+{
+  "author": "Samuel Vasko",
+  "name": "homeradio",
+  "version": "0.0.0",
+  "repository": {
+    "url": ""
+  },
+  "main": "app.js",
+  "dependencies": {
+    "gpio" : "*",
+    "express" : "*"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
