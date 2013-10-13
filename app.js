@@ -1,4 +1,4 @@
-var stream = require('./stream.js'),
+var player = require('./player.js'),
     Storage = require('./storage.js'),
     log = require('util').log;
 
@@ -32,8 +32,8 @@ app.post('/set', function (req, res) {
     }
 
     data.set(req.body.index);
-    stream.stop()
-    stream.play(data.current.url);
+    player.stop()
+    player.play(data.current.url);
     res.send(200)
 });
 
@@ -54,10 +54,10 @@ var gpio = require('gpio'),
 gpio17.on('change', function(value) {
     if(value) {
         log('Starting playback: ' + data.current.name)
-        stream.play(data.current.url)
+        player.play(data.current.url)
     }
     else {
         log('Stop playback')
-        stream.stop()
+        player.stop()
     }
 });
