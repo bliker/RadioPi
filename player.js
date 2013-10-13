@@ -8,9 +8,12 @@ module.exports = {
     play: function(url) {
 
         if(!this.stream) {
-            this.stream = spawn('mplayer', ['-quiet' ,'-playlist', url]);
-
-            log('Start streaming');
+            this.stream = spawn('mplayer', [
+                '-quiet',
+                '-playlist',
+                url
+            ]);
+            log('Start streaming url: ' + url);
         } else {
             log('Already streaming')
         }
