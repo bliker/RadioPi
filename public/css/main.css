@@ -58,29 +58,45 @@ hgroup {
     }
 }
 
+
 #player {
-    color: hsl(116, 19%, 40%);
+    color: hsl(116, 24%, 38%);
+    letter-spacing: 4px;
+    background-color: hsl(116, 54%, 93%);
+    height: 45px;
+    width: 135px;
+    margin-top: 30px;
+    margin-left: 4px;
+    border-radius: 8px;
+    line-height: 34px;
+    text-indent: 2px;
+    cursor: pointer;
+}
+
+.play:hover, .stop:hover {
+    color: hsl(116, 44%, 60%);
+    -webkit-transition: color 0.2s;
+    -moz-transition: color 0.2s;
+    -ms-transition: color 0.2s;
+    -o-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+.play:active, .stop:active {
+    color: hsl(116, 54%, 98%);
+    -webkit-transition: color 0;
+    -moz-transition: color 0;
+    -ms-transition: color 0;
+    -o-transition: color 0;
+    transition: color 0;
+}
+
+.play {
     font-size: 30px;
-    width: 40px;
-    text-align: center;
-    text-indent: 4px;
-    height: 40px;
-    line-height: 35px;
-    border-radius: 50%;
-    cursor:pointer;
-    -webkit-user-select: none;
-    border: 1px solid hsl(116, 19%, 59%);
-    text-align: center;
-    margin: 30px auto;
 }
 
-#player:hover {
-    border: 1px solid hsl(116, 19%, 80%);
-}
-
-#player:active {
-    color: #fff;
-    border: 1px solid hsl(116, 19%, 80%);
+.stop {
+    font-size: 43px;
 }
 
 main.container {

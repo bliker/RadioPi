@@ -9,7 +9,7 @@ var streamer = {
 
         list.on('click', 'tr', function(ev) {
             if(!$(this).hasClass('active')) {
-                that.play($(this).index());
+                that.set($(this).index());
             }
         });
 
@@ -69,7 +69,7 @@ var streamer = {
         })
     },
 
-    play: function(index) {
+    set: function(index) {
         this.activate(index);
         $.post('/set', {index: index}, function(data) {
             console.log('new index set');
