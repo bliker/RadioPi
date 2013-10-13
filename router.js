@@ -1,7 +1,7 @@
 module.exports = function (app, data, player) {
 
     app.get('/load', function (req, res){
-        res.json(data.data);
+        res.json(data.all);
     });
 
     app.post('/add', function (req, res){

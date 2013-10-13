@@ -7,20 +7,20 @@ var Storage = function (filename) {
 }
 
 Storage.prototype.set = function(index) {
-    this.data.stream = index;
+    this.all.stream = index;
     log('Changing index to' + index);
     this.save();
 };
 
 Object.defineProperty(Storage.prototype, 'current', {
     get: function() {
-        return this.data.urls[this.data.stream];
+        return this.all.urls[this.all.stream];
     }
 })
 
 Storage.prototype.push = function(name, url) {
 
-    this.data.urls.push({
+    this.all.urls.push({
         name: name,
         url: url
     });
@@ -29,19 +29,19 @@ Storage.prototype.push = function(name, url) {
 };
 
 Storage.prototype.save = function() {
-    fs.writeFile(this.filename, JSON.stringify(this.data), function (err) {
+    fs.writeFile(this.filename, JSON.stringify(this.all), function (err) {
         if(err) throw err;
         log('File saved');
     })
 };
 
 Storage.prototype.delete = function(index) {
-    log('Deleted url:', this.data.urls.splice(index, 1));
+    log('Deleted url:', this.all.urls.splice(index, 1));
 };
 
 Storage.prototype.load = function(filename) {
     data = fs.readFileSync(filename).toString();
-    this.data = JSON.parse(data);
+    this.all = JSON.parse(data);
 };
 
 module.exports = Storage
