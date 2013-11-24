@@ -25,7 +25,7 @@ var streamer = {
         list.on('click', 'td:last-child', function (event) {
             event.preventDefault();
             event.stopPropagation();
-            that.delete($(this).index());
+            that.delete($(this).parent().index());
             $(this).parent().remove();
         });
 
@@ -64,7 +64,7 @@ var streamer = {
     },
 
     delete: function(index) {
-        $.post('/delete', {index: index-2}, function (data) {
+        $.post('/delete', {index: index}, function (data) {
             console.log('Item removed');
         })
     },
