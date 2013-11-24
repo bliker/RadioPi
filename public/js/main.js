@@ -64,7 +64,7 @@ var streamer = {
     },
 
     delete: function(index) {
-        $.post('/delete', {index: index -1}, function (data) {
+        $.post('/delete', {index: index-2}, function (data) {
             console.log('Item removed');
         })
     },
