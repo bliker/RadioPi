@@ -1,0 +1,172 @@
+/* ==========================================================================
+   HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
+   ========================================================================== */
+
+html, button, input, select, textarea {
+  color: #222;
+}
+
+body {
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.chromeframe {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+template {
+  display: none !important;
+}
+
+/* ==========================================================================
+   Hello there
+   ========================================================================== */
+
+body {
+  background: lighten(#006BA6, 10%);
+}
+
+$blue: #006BA6;
+$i: 0;
+
+@while $i < 10 {
+  .station-item:nth-child(#{$i}) {
+    background-color: desaturate(lighten($blue, $i*4), $i)
+  }
+  $i: $i + 1;
+}
+
+.station-item {
+  width: 100%;
+  color: #fafafa;
+  position: relative;
+  font-family: Montserrat;
+  padding: 0.8em 0 1.1em 0;
+  overflow: hidden;
+  cursor: pointer;
+
+  .station-name, .station-url {
+    display: block;
+    margin-left: 10px;
+  }
+
+  .station-name {
+    font-size: 1.4em;
+  }
+
+  .station-url {
+    font-size: 0.7em;
+    line-height: 0.6em;
+    opacity: 0.8;
+    text-indent: 0.1em;
+  }
+
+  .station-delete {
+    position: absolute;
+    display: block;
+    right: 0.6em;
+    background: none;
+    border: none;
+    color: #fff;
+    outline: 0;
+    top: 26%;
+    font-size: 25px;
+    opacity: 0.8;
+  }
+}
+
+.station-playing {
+  background-color: #F9423A !important;
+}
+
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {}
+
+@media print, (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.ir {
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  *text-indent: -9999px;
+  &:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+  }
+}
+
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  &.focusable {
+    &:active, &:focus {
+      clip: auto;
+      height: auto;
+      margin: 0;
+      overflow: visible;
+      position: static;
+      width: auto;
+    }
+  }
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.clearfix {
+  &:before {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
+  *zoom: 1;
+}
