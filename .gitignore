@@ -2,3 +2,5 @@ db.sqlite
 public/js/*.js
 public/css/main.css
 node_modules
+npm-debug.log
+
