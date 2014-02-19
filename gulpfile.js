@@ -11,7 +11,7 @@ gulp.task('dev', ['scripts', 'scss'], function () {
 })
 
 gulp.task('scripts', function () {
-    gulp.src('sources/js/main.js')
+    return gulp.src('sources/js/main.js')
         .pipe(browserify({bare : true, debug : false }))
         .on('error', gutil.log)
         .on('error', gutil.beep)
@@ -19,7 +19,7 @@ gulp.task('scripts', function () {
 });
 
 gulp.task('scss', function() {
-    gulp.src('sources/scss/main.scss')
+    return gulp.src('sources/scss/main.scss')
         .pipe(sass())
             .on('error', gutil.log)
             .on('error', gutil.beep)
