@@ -12,7 +12,7 @@ gulp.task('dev', ['scripts', 'scss'], function () {
 
 gulp.task('scripts', function () {
     return gulp.src('sources/js/main.js')
-        .pipe(browserify({bare : true, debug : false }))
+        .pipe(browserify({bare : true, debug : true }))
         .on('error', gutil.log)
         .on('error', gutil.beep)
         .pipe(gulp.dest('./public/js'));

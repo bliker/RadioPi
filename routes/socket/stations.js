@@ -4,6 +4,9 @@ var vlc = require('../../vlc');
 
 module.exports = function (socket) {
 
+    /**
+     * Events that happen on connection of new client
+     */
     Station.all().success(function(stations) {
         socket.emit('list', stations);
         if (global.current) socket.emit('changed', global.current);

@@ -35,6 +35,9 @@ module.exports = function (host) {
         return result;
     }
 
+    /**
+     * Functions for interfacing wih the html list
+     */
     return {
 
         host : host,

@@ -51,6 +51,10 @@ module.exports = function (list, socket) {
                 list.remove(this.parentNode);
                 socket.emit('delete', id);
             }
+
+            // Without this the changing would also be called
+            event.stopPropagation();
+            event.preventDefault();
         });
 
         /**
@@ -71,7 +75,8 @@ module.exports = function (list, socket) {
         });
 
         /**
-         * Broadcasts ------------------
+         * Broadcast listeners
+         * Reacts to events that were initiated by other devices
          */
 
         socket.on('deleted', function (id) {
