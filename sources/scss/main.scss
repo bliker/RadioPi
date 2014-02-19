@@ -45,15 +45,25 @@ template {
    ========================================================================== */
 
 body {
-  background: lighten(#006BA6, 10%);
+  background: whitesmoke;
 }
 
 $blue: #006BA6;
 $i: 0;
 
-@while $i < 10 {
+.station-list {
+  box-shadow: 0 0 10px #ddd;
+  max-width: 34em;
+  background: lighten(#006BA6, 10%);
+  @media (min-width: 34em) {
+    margin: 2em auto 0 auto;
+  }
+}
+
+@while $i < 20 {
   .station-item:nth-child(#{$i}) {
-    background-color: desaturate(lighten($blue, $i*4), $i)
+    background-color: desaturate(lighten($blue, $i*4), $i);
+    @if $i > 10 { color: #444; }
   }
   $i: $i + 1;
 }
@@ -100,6 +110,32 @@ $i: 0;
 .station-playing {
   background-color: #F9423A !important;
 }
+
+.station-add {
+  background-color: #eee;
+  padding: 1.4em 0 1em 0;
+  max-width: 34em;
+  box-shadow: 0 0 10px #ddd;
+  margin: 0 auto;
+
+  input {
+    width: 90%;
+    padding: 0.5em;
+    display: block;
+    margin: 0 auto 0.5em auto;
+    border: 0;
+  }
+  input[type="text"] {
+    border-bottom: 1px solid #ddd;
+    color: #333;
+  }
+
+  input[type="submit"] {
+    background-color: #393E47;
+    color: #fff;
+  }
+}
+
 
 
 

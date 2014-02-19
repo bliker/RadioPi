@@ -46,8 +46,11 @@ module.exports = function (list, socket) {
          * Deleting
          */
         list.host.on('click', '.station-item .station-delete', function (event) {
-            list.remove(this.parentNode);
-            socket.emit('delete', this.parentNode.getAttribute('data-id'));
+            if(confirm('Are you sure you wanna?')) {
+                var id = $(this).parent().attr('data-id');
+                list.remove(this.parentNode);
+                socket.emit('delete', id);
+            }
         });
 
         /**
@@ -72,16 +75,24 @@ module.exports = function (list, socket) {
          */
 
         socket.on('deleted', function (id) {
+            console.info('Recieved deleted event with id: ' + id);
             list.remove(id);
         });
 
         socket.on('created',  function (data) {
+            console.info('Recieved create event with data: ', data);
             list.append(data);
         });
 
         socket.on('stopped', function () {
+            console.info('Recieved stoped event');
             list.unset();
         });
+
+        socket.on('changed', function (id) {
+            console.info('Recieved changed event with id: ' + id);
+            list.set(id);
+        })
 
     }
 }

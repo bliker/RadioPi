@@ -6,12 +6,14 @@ module.exports = function (socket) {
 
     Station.all().success(function(stations) {
         socket.emit('list', stations);
+        if (global.current) socket.emit('changed', global.current);
     });
 
     /**
      * Storage methods
      */
     socket.on('create', function (data) {
+        console.info('Created station: ' + data);
         Station.create(data);
         socket.broadcast.emit('created', data);
     });
@@ -48,6 +50,7 @@ module.exports = function (socket) {
         global.current = id;
         if (vlc.playing) vlc.stop();
 
+        socket.broadcast.emit('changed', id);
         playCurrent();
     });
 
