@@ -11,7 +11,7 @@
     "ejs": "~0.8.5",
     "vlc": "0.0.4",
     "sqlite3": "~2.2.0",
-    "sequelize": "~1.7.0-rc6",
+    "sequelize": "~1.7.0-rc6"
   },
   "devDependencies": {
     "gulp": "~3.5.2",
