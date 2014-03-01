@@ -15,9 +15,12 @@ module.exports = function (socket) {
     /**
      * Storage methods
      */
-    socket.on('create', function (data) {
-        console.info('Created station: ' + data);
-        Station.create(data);
+    socket.on('create', function (data, fn) {
+        console.info('Created station: ' + data.url);
+        Station.create(data).success(function (data) {
+            // Send back the id of the record created
+            fn(data.id);
+        });
         socket.broadcast.emit('created', data);
     });
 
@@ -31,13 +34,6 @@ module.exports = function (socket) {
             global.current = undefined;
         }
     });
-
-    /*
-     * Editing not implemented just yet
-     * socket.on('edit', function (data) {
-        socket.broadcast.emit('edited');
-    });*/
-
 
     /**
      * Controls

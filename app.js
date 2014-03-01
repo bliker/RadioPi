@@ -31,7 +31,3 @@ model.sequelize.sync().complete(function (err) {
   console.info('Listening on http://localhost:' + 8000);
   server.listen(8000);
 });
-
-
-// vlc.play('http://live.slovakradio.sk:8000/Devin_256.mp3');
-// vlc.stop();

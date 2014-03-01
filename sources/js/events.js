@@ -35,9 +35,11 @@ module.exports = function (list, socket) {
             }
 
             this.reset();
+            socket.emit('create', data, function (id) {
+                data.id = id;
+                list.append(data);
+            });
 
-            list.append(data);
-            socket.emit('create', data);
             e.preventDefault();
         });
 
