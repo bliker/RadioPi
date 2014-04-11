@@ -48,22 +48,24 @@ body {
   background: whitesmoke;
 }
 
-$blue: #006BA6;
+$blue: lighten(#006BA6, 5%);
+$green: #78BE20;
 $i: 0;
 
 .station-list {
   box-shadow: 0 0 10px #ddd;
   max-width: 34em;
-  background: lighten(#006BA6, 10%);
+  background: #333;
   @media (min-width: 34em) {
     margin: 2em auto 0 auto;
   }
 }
 
-@while $i < 20 {
-  .station-item:nth-child(#{$i}) {
-    background-color: desaturate(lighten($blue, $i*4), $i);
-    @if $i > 10 { color: #444; }
+@while $i <= 10 {
+  .station-item:nth-child(#{$i}),
+  .station-item:nth-child(#{20 - $i}),
+  .station-item:nth-child(#{$i + 19}) {
+    background-color: lighten($blue, $i*4);
   }
   $i: $i + 1;
 }
