@@ -9,7 +9,8 @@ module.exports = function (socket) {
      */
     Station.all().success(function(stations) {
         socket.emit('list', stations);
-        if (global.current) socket.emit('changed', global.current);
+        if (global.current && vlc.playing)
+            socket.emit('changed', global.current);
     });
 
     /**
