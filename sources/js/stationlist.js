@@ -1,16 +1,14 @@
+var template = require('./template');
+
 module.exports = function (host) {
 
     function createElement (data) {
-        // Prepare template
-        var content = document.getElementById('template-station-item').content;
 
-        // Add content
-        var item = content.querySelector('.station-item')
-        item.querySelector('.station-name').innerHTML = data.name;
-        item.querySelector('.station-url').innerHTML = data.url;
-        item.setAttribute('data-id', data.id);
+        var el = template.get('#template-station-item');
+        el.fill('.station-name', data.name);
+        el.attr('.station-item', 'data-id', data.id);
 
-        return $(document.importNode(content, true));
+        return el.create();
     }
 
     /**

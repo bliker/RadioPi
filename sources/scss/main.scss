@@ -73,24 +73,17 @@ $i: 0;
   color: #fafafa;
   position: relative;
   font-family: Montserrat;
-  padding: 0.8em 0 1.1em 0;
+  padding: 1em 0 0.8em 0;
   overflow: hidden;
   cursor: pointer;
 
-  .station-name, .station-url {
+  .station-name {
     display: block;
     margin-left: 10px;
   }
 
   .station-name {
     font-size: 1.4em;
-  }
-
-  .station-url {
-    font-size: 0.7em;
-    line-height: 0.6em;
-    opacity: 0.8;
-    text-indent: 0.1em;
   }
 
   .station-delete {
